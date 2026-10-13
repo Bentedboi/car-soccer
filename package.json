@@ -1,0 +1,15 @@
+{
+  "name": "rocket-leauge-server",
+  "version": "1.0.0",
+  "description": "Server list, lobbies and match relay for Rocket Leauge online 1v1s",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "ws": "8.18.0"
+  }
+}

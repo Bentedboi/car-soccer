@@ -1,0 +1,10 @@
+# Render Blueprint: one free web service running the online server (server.js).
+# In Render: New > Blueprint, pick the GitHub repo and the "server" branch.
+services:
+  - type: web
+    name: rocket-leauge-server
+    runtime: node
+    plan: free
+    branch: server
+    buildCommand: npm install
+    startCommand: node server.js
