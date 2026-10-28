@@ -1,10 +1,15 @@
-# Render Blueprint: one free web service running the online server (server.js).
+# Render Blueprint: the online server (server.js) in Docker, with a headless Godot inside
+# that runs each match. The free plan is too small for that (512 MB RAM, a fraction of a
+# CPU, and it sleeps), so this needs a paid instance: "starter" is the cheapest. Raise
+# the plan (and MAX_SIMS, matches running at once) if matches stutter.
 # In Render: New > Blueprint, pick the GitHub repo and the "server" branch.
 services:
   - type: web
     name: rocket-leauge-server
-    runtime: node
-    plan: free
+    runtime: docker
+    plan: starter
     branch: server
-    buildCommand: npm install
-    startCommand: node server.js
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MAX_SIMS
+        value: "2"
